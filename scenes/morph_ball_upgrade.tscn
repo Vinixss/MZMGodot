@@ -1,0 +1,103 @@
+[gd_scene load_steps=14 format=3 uid="uid://chfghah1hceei"]
+
+[ext_resource type="Script" uid="uid://d238wpjexgk5g" path="res://scripts/morph_ball_upgrade.gd" id="1_ifp8k"]
+[ext_resource type="Texture2D" uid="uid://cau8qbluhhl2u" path="res://assets/sprites/MorphBallUpgrade.png" id="1_qnfpg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ifp8k"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkq50"]
+atlas = ExtResource("1_qnfpg")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xy8b"]
+atlas = ExtResource("1_qnfpg")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4ygo"]
+atlas = ExtResource("1_qnfpg")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pj6eo"]
+animations = [{
+"frames": [{
+"duration": 17.0,
+"texture": SubResource("AtlasTexture_dkq50")
+}, {
+"duration": 17.0,
+"texture": SubResource("AtlasTexture_4xy8b")
+}, {
+"duration": 17.0,
+"texture": SubResource("AtlasTexture_i4ygo")
+}, {
+"duration": 17.0,
+"texture": SubResource("AtlasTexture_4xy8b")
+}],
+"loop": true,
+"name": &"MorphPulse",
+"speed": 60.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6b1u0"]
+atlas = ExtResource("1_qnfpg")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hsm0y"]
+atlas = ExtResource("1_qnfpg")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8d42"]
+atlas = ExtResource("1_qnfpg")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nrvyt"]
+atlas = ExtResource("1_qnfpg")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdl82"]
+atlas = ExtResource("1_qnfpg")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_drcr3"]
+animations = [{
+"frames": [{
+"duration": 100.0,
+"texture": SubResource("AtlasTexture_6b1u0")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_hsm0y")
+}, {
+"duration": 6.0,
+"texture": SubResource("AtlasTexture_k8d42")
+}, {
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_nrvyt")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_sdl82")
+}],
+"loop": true,
+"name": &"default",
+"speed": 60.0
+}]
+
+[node name="MorphBallUpgrade" type="Area2D"]
+z_index = 2
+collision_mask = 2
+script = ExtResource("1_ifp8k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ifp8k")
+
+[node name="Inside" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_pj6eo")
+animation = &"MorphPulse"
+autoplay = "MorphPulse"
+frame_progress = 0.450748
+
+[node name="Outside" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_drcr3")
+autoplay = "default"
+frame_progress = 0.991656
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
