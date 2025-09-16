@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=4 uid="uid://ccfoeu0k8rhj5"]
+[gd_scene load_steps=12 format=4 uid="uid://ccfoeu0k8rhj5"]
 
 [ext_resource type="PackedScene" uid="uid://bqodthelj642o" path="res://scenes/Samus.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://b3ubnd0liohmu" path="res://assets/sprites/BrinstarTiles.png" id="1_yqjtg"]
 [ext_resource type="Texture2D" uid="uid://bpum0kg88ahai" path="res://assets/sprites/BrinstarBackground01.png" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://chfghah1hceei" path="res://scenes/morph_ball_upgrade.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://b816tgpr8rp80" path="res://scenes/enemy.tscn" id="5_iywne"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("1_yqjtg")
@@ -5688,3 +5689,6 @@ limit_bottom = 48
 
 [node name="MorphBallUpgrade" parent="." instance=ExtResource("4_lbhrr")]
 position = Vector2(-392, -24)
+
+[node name="Enemy" parent="." instance=ExtResource("5_iywne")]
+position = Vector2(-328, -8)
