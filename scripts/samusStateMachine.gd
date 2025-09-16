@@ -34,10 +34,12 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		set_state(States_list.STAND_LEFT)
 	elif cur_state in [States_list.STAND_LEFT, States_list.RUN_LEFT] and Input.get_axis("ui_left", "ui_right") > 0:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
 		set_state(States_list.TURN_RIGHT)
 	
 	#Right states
 	elif cur_state in [States_list.STAND_RIGHT, States_list.RUN_RIGHT] and Input.get_axis("ui_left", "ui_right") < 0:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
 		set_state(States_list.TURN_LEFT)
 	elif cur_state in [States_list.STAND_RIGHT, States_list.RUN_RIGHT] and Input.get_axis("ui_left", "ui_right") == 0:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
