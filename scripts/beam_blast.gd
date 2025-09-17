@@ -1,15 +1,16 @@
-extends CharacterBody2D
+extends Area2D
 
-@onready var sprite = $Sprite2D
 var dir: float
+@onready var sprite = $Sprite2D
 
 func _physics_process(delta: float) -> void:
-	if dir > 0:
-		sprite.flip_h = true
-	else:
-		sprite.flip_h = false
-	velocity.x = dir * 2000
-	move_and_slide()
+	translate(Vector2(750, 0) * delta * dir)
 
-func _on_body_entered(body: Node) -> void:
-	pass # Replace with function body.
+func _on_body_entered(body) -> void:
+	queue_free()
+
+func _on_area_entered(area: Area2D) -> void:
+	queue_free()
+
+func _on_timer_timeout() -> void:
+	queue_free()

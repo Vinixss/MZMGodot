@@ -70,17 +70,20 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 
 func shoot_beam() -> void:
 	var beam_instance = beam_scene.instantiate()
-	get_tree().root.add_child(beam_instance)
-	beam_instance.global_position.y = global_position.y - 7
 	
 	if cur_state in [States_list.STAND_RIGHT, States_list.RUN_RIGHT]:
 		beam_instance.global_position.x = global_position.x + 13
+		beam_instance.rotation = deg_to_rad(180)
 		beam_instance.dir = 1.0
 		print("Shot right")
 	elif cur_state in [States_list.STAND_LEFT, States_list.RUN_LEFT]:
 		beam_instance.global_position.x = global_position.x - 13
+		beam_instance.rotation = deg_to_rad(0)
 		beam_instance.dir = -1.0
 		print("Shot left")
+	
+	get_tree().root.add_child(beam_instance)
+	beam_instance.global_position.y = global_position.y - 8
 
 func set_state(new_state: int) -> void:
 	cur_state = new_state
