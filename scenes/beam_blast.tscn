@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqqkscfi8gkta"]
+
+[ext_resource type="Texture2D" uid="uid://do38f7pl8g7xg" path="res://assets/sprites/beam.png" id="1_arasm"]
+[ext_resource type="Script" uid="uid://qupu1ktn8e37" path="res://scripts/beam_blast.gd" id="1_cdp3i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cdp3i"]
+size = Vector2(16, 8)
+
+[node name="BeamBlast" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_cdp3i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_arasm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cdp3i")
