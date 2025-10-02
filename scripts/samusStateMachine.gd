@@ -53,6 +53,7 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("ui_up") && not cur_state in [States_list.STAND_FRONT, States_list.TURN_LEFT, States_list.TURN_RIGHT]:
 		shoot_beam()
+		#when any of the shooting animations are playing, Samus can not shoot. The animations last for 4 frames
 	
 	move_and_slide()
 
