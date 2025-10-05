@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://bpt0dikbdj7e0"]
+
+[ext_resource type="Texture2D" uid="uid://b8fkae2wy2nsa" path="res://assets/sprites/Doors.png" id="1_hpvv5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvdjg"]
+atlas = ExtResource("1_hpvv5")
+region = Rect2(32, 0, 16, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_83dcw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvdjg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hpvv5"]
+size = Vector2(16, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uvdjg"]
+size = Vector2(16, 64)
+
+[node name="Door" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_83dcw")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hpvv5")
+
+[node name="Transition" type="CollisionShape2D" parent="."]
+position = Vector2(16, 0)
+shape = SubResource("RectangleShape2D_uvdjg")
+
+[node name="States" type="Node" parent="."]
+
+[node name="Closed" type="Node" parent="States"]
+
+[node name="Closing" type="Node" parent="States"]
+
+[node name="Open" type="Node" parent="States"]
+
+[node name="Opening" type="Node" parent="States"]
