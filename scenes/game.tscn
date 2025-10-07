@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=4 uid="uid://ccfoeu0k8rhj5"]
+[gd_scene load_steps=14 format=4 uid="uid://ccfoeu0k8rhj5"]
 
+[ext_resource type="Script" uid="uid://c5mofy2ottms4" path="res://scripts/game.gd" id="1_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://bqodthelj642o" path="res://scenes/Samus.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://b3ubnd0liohmu" path="res://assets/sprites/BrinstarTiles.png" id="1_yqjtg"]
 [ext_resource type="Texture2D" uid="uid://bpum0kg88ahai" path="res://assets/sprites/BrinstarBackground01.png" id="2_lnu2h"]
@@ -5660,6 +5661,13 @@ texture = ExtResource("2_lnu2h")
 sources/1 = SubResource("TileSetAtlasSource_u5sy4")
 
 [node name="Brinstar_1" type="Node2D"]
+script = ExtResource("1_u5sy4")
+
+[node name="Doors" type="Node" parent="."]
+
+[node name="Door_Brin_2" parent="Doors" instance=ExtResource("6_p57ef")]
+z_index = 1
+position = Vector2(632, -32)
 
 [node name="Tilemaps" type="Node" parent="."]
 
@@ -5693,7 +5701,3 @@ position = Vector2(-392, -24)
 
 [node name="Enemy" parent="." instance=ExtResource("5_iywne")]
 position = Vector2(-328, -8)
-
-[node name="Door_Brin_2" parent="." instance=ExtResource("6_p57ef")]
-z_index = 1
-position = Vector2(632, -32)
