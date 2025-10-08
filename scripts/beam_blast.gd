@@ -3,7 +3,8 @@ extends Area2D
 var dir: float
 @onready var sprite = $Sprite2D
 
-signal open_door(door_name: String)
+func _ready() -> void:
+	add_to_group("Beam")
 
 func _physics_process(delta: float) -> void:
 	translate(Vector2(750, 0) * delta * dir)

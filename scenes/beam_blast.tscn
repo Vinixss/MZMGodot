@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cdp3i"]
 size = Vector2(16, 8)
 
-[node name="BeamBlast" type="Area2D"]
+[node name="BeamBlast" type="Area2D" groups=["Beam"]]
 position = Vector2(-6, 0)
 collision_layer = 4
 script = ExtResource("1_cdp3i")
