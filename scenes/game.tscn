@@ -5666,8 +5666,8 @@ script = ExtResource("1_u5sy4")
 [node name="Doors" type="Node" parent="."]
 
 [node name="Door_Brin_2" parent="Doors" instance=ExtResource("6_p57ef")]
-z_index = 1
 position = Vector2(632, -32)
+exit = "uid://cxtb45hv52qdf"
 
 [node name="Tilemaps" type="Node" parent="."]
 
@@ -5686,15 +5686,8 @@ tile_map_data = PackedByteArray("AADc/+P/AQAWAAQAAADc/+T/AQAWAAUAAADc/+X/AQAWAAY
 tile_set = SubResource("TileSet_iywne")
 
 [node name="Samus" parent="." instance=ExtResource("1_uwrxv")]
-z_index = 1
+z_index = 0
 position = Vector2(54, -1)
-
-[node name="Camera2D" type="Camera2D" parent="Samus"]
-zoom = Vector2(4.8, 4.05)
-limit_left = -560
-limit_top = -112
-limit_right = 656
-limit_bottom = 48
 
 [node name="MorphBallUpgrade" parent="." instance=ExtResource("4_lbhrr")]
 position = Vector2(-392, -24)
